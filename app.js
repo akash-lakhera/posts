@@ -4,7 +4,7 @@ app=express()
 const port=process.env.PORT||4000
 app.use(express.json())
 app.get("/",home)
-app.get("/posts",posts)
+app.get("/posts/",posts)
 app.listen(port,()=>{
     console.log("server is running")
 })
