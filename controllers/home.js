@@ -10,11 +10,19 @@ const home = (req, res, next) => {
         </html>`);
 };
 
-const posts = (req, res, next) => {
+const posts = async(req, res, next) => {
    let code=req.query.code
     console.log(code)
-  
-  res.send("hey");
+  let js=await fetch(`https://api.instagram.com/oauth/access_token`,{method:"POST",body:{
+    client_id:286775973922262,
+    client_secret:"d521835c5f30c6e62ce4ba5d107af00d",
+    code:code,
+    grant_type:"authorization_code",
+    redirect_uri:"https://posts-pmim.onrender.com/posts/"
+  }})
+  let data=await js.json()
+  console.log(data)
+  res.send("heyaaa");
 };
 
 module.exports = { home, posts };
