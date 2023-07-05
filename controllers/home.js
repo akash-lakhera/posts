@@ -14,7 +14,7 @@ const posts = async(req, res, next) => {
    let code=req.query.code
     console.log(code)
   let js=await fetch(`https://api.instagram.com/oauth/access_token`,{method:"POST",body:{
-    client_id:286775973922262,
+    client_id:"286775973922262",
     client_secret:"d521835c5f30c6e62ce4ba5d107af00d",
     code:code,
     grant_type:"authorization_code",
@@ -22,6 +22,7 @@ const posts = async(req, res, next) => {
   }})
   let data=await js.json()
   console.log(data)
+
   res.send("heyaaa");
 };
 
