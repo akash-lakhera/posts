@@ -13,7 +13,9 @@ const home = (req, res, next) => {
 const posts = async(req, res, next) => {
    let code=req.query.code
     console.log(code)
-  let js=await fetch(`https://api.instagram.com/oauth/access_token`,{method:"POST",body:{
+  let js=await fetch(`https://api.instagram.com/oauth/access_token`,{method:"POST",headers: {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+  },body:{
    
     client_secret:"d521835c5f30c6e62ce4ba5d107af00d",
     code:code,
