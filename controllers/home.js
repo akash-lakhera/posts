@@ -1,5 +1,6 @@
 const axios = require("axios")
 const request=require("request")
+const qs=require("qs")
 const home = (req, res, next) => {
   res.send(`
         <html>
@@ -21,12 +22,18 @@ const posts = async(req, res, next) => {
         grant_type:"authorization_code",
         redirect_uri:"https://posts-pmim.onrender.com/posts/"
       }
-      let response=await request.post({
-        url:"https://api.instagram.com/oauth/access_token",
-        form:payload
-      })
+    
+      url="https://api.instagram.com/oauth/access_token"
+      const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: qs.stringify(payload),
+        url,
+      };
+      let data=axios(options);
+      
 
-  let data=response.access_token
+  
   console.log(data)
 
   res.send("heyaaa");
