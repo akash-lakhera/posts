@@ -30,7 +30,7 @@ const posts = async(req, res, next) => {
         data: qs.stringify(payload),
         url,
       };
-      let data=axios(options);
+      let data=await axios(options);
       
 
   
