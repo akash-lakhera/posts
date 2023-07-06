@@ -34,7 +34,7 @@ const posts = async(req, res, next) => {
       
 
   
-  console.log(data)
+  console.log(data.data)
 
   res.send("heyaaa");
 };
