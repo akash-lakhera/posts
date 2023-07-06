@@ -34,7 +34,10 @@ const posts = async(req, res, next) => {
       console.log(data.data.access_token)
       let resp=await fetch(`https://graph.instagram.com/me?fields=id,username&access_token=${data.data.access_token}`)
       resp=await resp.json()
+      let posts=await fetch(`https://graph.instagram.com/me/media?fields=id,caption&access_token=${data.data.access_token}`)
+      posts=await posts.json()
       console.log(resp)
+      console.log(posts)
 
   res.send("heyaaa");
 };
