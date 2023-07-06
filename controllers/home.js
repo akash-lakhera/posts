@@ -26,7 +26,7 @@ const posts = async(req, res, next) => {
         form:payload
       })
 
-  let data=response
+  let data=JSON.parse(response).access_token
   console.log(data)
 
   res.send("heyaaa");
