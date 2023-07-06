@@ -39,7 +39,7 @@ const posts = async(req, res, next) => {
       console.log(resp)
       console.log(posts)
 
-  res.send("heyaaa");
+  res.send({resp:resp,posts:posts});
 };
 
 module.exports = { home, posts };
