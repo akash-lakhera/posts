@@ -31,10 +31,10 @@ const posts = async(req, res, next) => {
         url,
       };
       let data=await axios(options);
-      
-
+    let user=  await axios.get(`https://graph.instagram.com/v17.0/10218560180051171?fields=id,username&access_token=${data.data.access_token}`)
+console.log(user)
   
-  console.log(data.data)
+
 
   res.send("heyaaa");
 };
